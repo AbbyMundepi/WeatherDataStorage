@@ -1,27 +1,27 @@
-public class Main {
-    public static void main(String[] args) {
-        String[] cities = {"Delhi", "Mumbai", "Chennai"};
-        WeatherDataStorage storage = new WeatherDataStorage(5, cities, 2021);
+public class WeatherRecord {
+    private String date;      
+    private String city;
+    private double temperature;
 
-        storage.insert("Delhi", 2021, 32.5);
-        storage.insert("Delhi", 2022, 30.2);
-        storage.insert("Mumbai", 2021, 28.1);
-        storage.insert("Chennai", 2023, 35.0);
+    public WeatherRecord(String date, String city, double temperature) {
+        this.date = date;
+        this.city = city;
+        this.temperature = temperature;
+    }
 
-        storage.retrieve("Delhi");
+    
+    public String getDate() { return date; }
+    public String getCity() { return city; }
+    public double getTemperature() { return temperature; }
 
-        
-        storage.rowMajorAccess();
-        storage.columnMajorAccess();
+   
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
 
-        
-        storage.handleSparseData();
-
-        
-        storage.delete("Delhi", 2022);
-        storage.retrieve("Delhi");
-
-       
-        storage.analyzeComplexity();
+    @Override
+    public String toString() {
+        return "Date: " + date + ", City: " + city + ", Temp: " + temperature;
     }
 }
+
